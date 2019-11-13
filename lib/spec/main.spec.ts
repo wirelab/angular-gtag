@@ -5,7 +5,7 @@ describe('Gtag', () => {
   let gtag;
 
   beforeEach(() => {
-    gtag = new Gtag({ trackingId: 'testId' }, {} as Router);
+    gtag = new Gtag([{ trackingId: 'testId' }], {} as Router);
   });
 
   it('should be defined', () => {

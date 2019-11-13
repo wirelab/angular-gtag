@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  gaConfig: {
+  gtagConfigs: [{
     trackingId: 'UA-59099331-15',
-    debug: true
-  }
+    debug: false
+  }]
 };

@@ -16,6 +16,7 @@ export class GtagEventDirective implements AfterViewInit {
   @Input() action: string;
   @Input() category: string;
   @Input() params: any;
+  @Input() trackingId: string;
 
   constructor(
     private gtag: Gtag,
@@ -29,7 +30,7 @@ export class GtagEventDirective implements AfterViewInit {
         this.gtag.event(this.action || this.trackOn, {
           event_category: this.category,
           ...this.params
-        });
+        }, this.trackingId);
       });
     } catch (err) {
       console.error(err);

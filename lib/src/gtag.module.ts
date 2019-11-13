@@ -11,10 +11,10 @@ import { GtagConfig } from './interfaces';
   exports: [GtagEventDirective]
 })
 export class GtagModule {
-  public static forRoot(config: GtagConfig): ModuleWithProviders {
+  public static forRoot(configs: GtagConfig[]): ModuleWithProviders {
     return {
       ngModule: GtagModule,
-      providers: [Gtag, { provide: 'config', useValue: config }]
+      providers: [Gtag, { provide: 'configs', useValue: configs }]
     };
   }
 }

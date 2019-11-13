@@ -15,7 +15,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GtagModule.forRoot(environment.gaConfig)
+    GtagModule.forRoot(environment.gtagConfigs)
   ],
   providers: [],
   bootstrap: [AppComponent]

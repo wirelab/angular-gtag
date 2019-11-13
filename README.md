@@ -12,12 +12,12 @@ Add the the tracking code from GA admin dashboard to `index.html` and set _send_
 
 ```html
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR_TRACKING_ID"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-YOUR_TRACKING_ID', { 'send_page_view': false });
+  gtag('config', 'YOUR_TRACKING_ID', { 'send_page_view': false });
 </script>
 
 </head>
@@ -30,15 +30,18 @@ import { GtagModule } from 'angular-gtag';
 
 @NgModule({
   imports: [
-    GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true })
+    GtagModule.forRoot([{ trackingId: 'YOUR_TRACKING_ID', trackPageviews: true }])
   ]
 })
 ```
 
+You can add multiple configs to trigger events for Google Ads and/or Google Analytics.
+
 **Options**
 
-- `trackingId: string (required)` Google Analytics UA tracking ID.
+- `trackingId: string (required)` Google Analytics UA-* or Google Ads AW-* tracking ID.
 - `trackPageviews: boolean` Default true.
+- `enabled: boolean` Default true, needed to comply with GDPR rules.
 - `debug: boolean` Default false, console logs every gtag event/pageview.
 
 ## Pageviews
