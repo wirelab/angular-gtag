@@ -1,6 +1,5 @@
 import {
   Directive,
-  HostListener,
   Renderer2,
   Input,
   AfterViewInit,
@@ -27,10 +26,14 @@ export class GtagEventDirective implements AfterViewInit {
   ngAfterViewInit() {
     try {
       this.renderer.listen(this.el.nativeElement, this.trackOn, () => {
-        this.gtag.event(this.action || this.trackOn, {
-          event_category: this.category,
-          ...this.params
-        }, this.trackingId);
+        this.gtag.event(
+          this.action || this.trackOn,
+          {
+            event_category: this.category,
+            ...this.params
+          },
+          this.trackingId
+        );
       });
     } catch (err) {
       console.error(err);
